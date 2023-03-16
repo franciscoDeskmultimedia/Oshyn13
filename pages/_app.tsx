@@ -1,5 +1,5 @@
 import '@/styles/globals.scss'
-import { AnimatePresence } from 'framer-motion'
+// import { AnimatePresence } from 'framer-motion'
 import { Rubik, Sora, Lobster, Hind } from '@next/font/google';
 import Layout from '../components/Layout';
 
@@ -27,7 +27,7 @@ import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AnimatePresence>
+    // <AnimatePresence>
         <Layout>
           <main className={`${lobster} ${sora} ${rubik}`}>
             {/* <HubspotProvider> */}
@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </style>
           </main>
         </Layout>
-      </AnimatePresence>
+      // </AnimatePresence>
   ) 
   // <Component {...pageProps} />
 }
