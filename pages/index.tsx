@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({homepage,nav}:{homepage:any,nav:any}) {
   const navigationItems = nav.nav.navItemCollection.items;
+  console.log(nav)
   return (
     <>
       <Head>
