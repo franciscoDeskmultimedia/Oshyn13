@@ -5,7 +5,12 @@ import { Inter } from 'next/font/google'
 import { getHomePage, getNav, getForm } from '../lib/api'
 import Navigation from '@/components/Navigation/Navigation'
 import HomepageHero from '@/components/HomepageHero/HomepageHero'
-import Carousel from '@/components/Carousel/Carousel';
+import Carousel from '@/components/Carousel/Carousel'
+import SliderCta from '@/components/SliderCta/SliderCta'
+import TabSlider from '@/components/TabSlider/TabSlider'
+import TabSection from '@/components/TabSection/TabSection'
+import TestimonySlider from '@/components/TestimonySlider/TestimonySlider'
+
 // import styles from '@/styles/Home.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -41,53 +46,54 @@ export default function Home({homepage,nav}:{homepage:any,nav:any}) {
                   cardSlides={item.relatedServicesCollection.items} 
                   title={item.title}
                   description={item.description}
+                  cta={item.cta}
                 />
               </section>
             )
           }
-          // if(item.__typename == "SliderCta"){
-          //   return(
-          //     <section key={index} className='slider-cta pt-36 px-10 w-full bg-slate-900'>
-          //       <SliderCta slides={item}></SliderCta>
-          //     </section>
-          //   )
-          // }
-          // if(item.__typename == 'InsightSlider'){
-          //   return(
-          //     <section key={index} className='insight py-20 px-10 w-full'>
-          //       <Carousel 
-          //         type='post'
-          //         arrows='true'
-          //         cardSlides={item.slideCollection.items} 
-          //         title={item.title}
-          //         description={item.description}
-          //         cta={item.ctaCollection.items}
-          //       />
-          //     </section>
-          //   )
-          // }
-          // if(item.__typename == 'TabSlider'){
-          //   return(
-          //     <section key={index} className='tab-slider py-20 px-10 w-full'>
-          //       <TabSlider tabs={item} />
-          //     </section>
-          //   )
-          // }
-          // if(item.__typename == 'TestimonySlider'){
-          //   return(
-          //     <section key={index} className='testimony-slider py-20 px-10 w-full'>
-          //       <TestimonySlider title={item.title} description={item.description} slides={item.testimoniesCollection.items}/>
-          //     </section>
-          //   )
-          // }
-          // if(item.__typename == 'TabSection'){
+          if(item.__typename == "SliderCta"){
+            return(
+              <section key={index} className='slider-cta pt-36 px-10 w-full bg-slate-900'>
+                <SliderCta slides={item}></SliderCta>
+              </section>
+            )
+          }
+          if(item.__typename == 'InsightSlider'){
+            return(
+              <section key={index} className='insight py-20 px-10 w-full'>
+                <Carousel 
+                  type='post'
+                  arrows='true'
+                  cardSlides={item.slideCollection.items} 
+                  title={item.title}
+                  description={item.description}
+                  ctaMultiple={item.ctaCollection.items}
+                />
+              </section>
+            )
+          }
+          if(item.__typename == 'TabSlider'){
+            return(
+              <section key={index} className='tab-slider py-20 px-10 w-full bg-red-700'>
+                <TabSlider tabs={item} />
+              </section>
+            )
+          }
+          if(item.__typename == 'TestimonySlider'){
+            return(
+              <section key={index} className='testimony-slider py-20 px-10 w-full'>
+                <TestimonySlider title={item.title} description={item.description} slides={item.testimoniesCollection.items}/>
+              </section>
+            )
+          }
+          if(item.__typename == 'TabSection'){
             
-          //   return(
-          //     <section key={index} className='tabs py-20 px-10 w-full bg-gray-100'>
-          //       <TabSection tabs={item}></TabSection>
-          //     </section>
-          //   )
-          // }
+            return(
+              <section key={index} className='tabs py-20 px-10 w-full bg-gray-100'>
+                <TabSection tabs={item}></TabSection>
+              </section>
+            )
+          }
         })}
 
       {/* </motion.main> */}

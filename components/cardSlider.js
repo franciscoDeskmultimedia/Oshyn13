@@ -58,7 +58,7 @@ const CardSlider = (props)=>{
                                     <Link className=' font-bold underline mt-4' href={`/services/${card.slug}`}>Learn More</Link>
                                     <Image className=' mt-12 block' alt={card.featuredImage.title} src={card.featuredImage.url} width={384} height={322}></Image>
                                     <div className="stripped-circle__decor">
-                                        <Image  src='/stripped-circle.svg' alt='dotted circle decor' priority width={410} height={410}></Image>
+                                        <Image  src='/stripped-circle.svg' alt='dotted circle decor' width={410} height={410}></Image>
                                     </div>
                                 </div>
                                

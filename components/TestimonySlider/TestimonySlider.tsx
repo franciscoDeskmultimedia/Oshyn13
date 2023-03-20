@@ -1,18 +1,21 @@
 
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+// import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+// import '@splidejs/react-splide/css';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import Image from 'next/image';
 
-const TestimonySlider = (props)=>{
+const TestimonySlider = (props:any)=>{
 
     return(
-        <div className="testimony-slider__inner max-w-7xl mx-auto  px-9 flex flex-wrap pt-12 md:pt-48 pb-12 md:pb-28 md:px-20 bg-[#010a27]">
+        <div className="testimony-slider__inner max-w-siteContainer mx-auto  px-9 flex flex-wrap pt-12 md:pt-48 pb-12 md:pb-28 md:px-20 bg-[#010a27]">
             <div className="stripped-circle__decor hidden md:block">
-                    <Image className=' max-w-[255px] h-auto'  src='/stripped-circle.svg' alt='dotted circle decor' priority width={410} height={410}></Image>
+                    <Image className=' max-w-[255px] h-auto'  src='/stripped-circle.svg' alt='dotted circle decor' width={410} height={410}></Image>
             </div>
             <div className="plus__decor hidden md:block">
-                    <Image className=' max-w-[406px] h-auto'  src='/plus2.png' alt='dotted circle decor' priority width={410} height={410}></Image>
+                    <Image className=' max-w-[406px] h-auto'  src='/plus2.png' alt='dotted circle decor' width={410} height={410}></Image>
             </div>
             <div className='w-full md:w-1/3 relative'>
                 <h3 className=' text-white font-sora text-h1'>
@@ -21,7 +24,31 @@ const TestimonySlider = (props)=>{
                 <p className='text-white text-lg opacity-70 mt-5'>{props.description}</p>
             </div>
             <div className='w-full md:w-2/3 pt-28 md:pt-0'>
-            <Splide 
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log('swiper')}
+            >
+                {props.slides.map((item:any,index:any)=>{
+                                return(
+                                    <SwiperSlide key={index} >
+                                        <div className='testimony-meta flex items-start'>
+                                            <Image className=' max-w-[100px]  ' src={item.testimonyImage.url} alt={item.testimonyImage.title} width={item.testimonyImage.width} height={item.testimonyImage.height}></Image>
+                                            <div className='testimony-data ml-5'>
+                                                <p className='text-white font-bold'>{item.name}</p>
+                                                <div className='testimony-title text-white max-w-xs'>
+                                                    <p className=' font-bold'>{item.position}</p> {item.company ? <p>{item.company}</p> : null}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <p className=' text-white text-3xl mt-7 '>{item.testymony}</p>
+                                    </SwiperSlide>
+                                )
+                            })}
+            </Swiper>
+            {/* <Splide 
                 aria-label="Carousel" 
                 hasTrack={false}
                 options={{
@@ -58,7 +85,7 @@ const TestimonySlider = (props)=>{
                             })}
                         </SplideTrack>
                     </div>
-            </Splide>
+            </Splide> */}
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from "../components/Button/Button";
 import Image from "next/image";
 
 const ServicesHero = (props)=>{

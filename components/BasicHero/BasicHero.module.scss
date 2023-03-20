@@ -1,0 +1,22 @@
+.basic_hero{
+    position: relative;
+    overflow: hidden;
+    background: url(/home-bg.webp);
+    min-height: 500px;
+}
+.dotted_circle__decor{
+    position: absolute;
+    top: calc(-250px / 2);
+    right: calc(-250px / 2);
+}
+.stripped_circle__decor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.stripped_rectangle__decor{
+    bottom: 50%;
+    left: -11%;
+    position: absolute;
+}

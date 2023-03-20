@@ -1,0 +1,20 @@
+.logo_slider{
+    .swiper{
+        & > div:first-child{
+            display: flex;
+            align-items: center;
+            li{
+                margin: auto;
+                @apply flex justify-center
+              }
+        }
+    }
+    .splide__list{
+      display: flex;
+      align-items: center;
+      li{
+        margin: auto;
+        @apply flex justify-center
+      }
+    }
+  }

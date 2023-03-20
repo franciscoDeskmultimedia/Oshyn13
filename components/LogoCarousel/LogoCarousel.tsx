@@ -5,12 +5,16 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import Image from 'next/image';
 
+import styles from '../LogoCarousel/LogoCarousel.module.scss'
+
 const LogoCarousel = (props:any)=>{
     return(
-        <div className=' logo-slider w-full'>
+        <div className={` ${styles.logo_slider} w-full`}>
             <Swiper
+            className={`${styles.swiper}`}
             modules={[Navigation]}
             navigation
+            loop={true} 
             spaceBetween={50}
             slidesPerView={6}
             onSlideChange={() => console.log('slide change')}
