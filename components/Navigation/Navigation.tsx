@@ -1,9 +1,13 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../Button/Button';
-import { motion } from "framer-motion"
-import SubNav from './SubNav/SubNav';
+import { motion } from "framer-motion";
 import { useState } from "react";
+
+const SubNav = dynamic(() => import('../Navigation/SubNav/SubNav'))
+
+
 
 
 const Navigation = (props:any)=>{
