@@ -1,8 +1,11 @@
-import HomepageSlider from "../HomepageSlider/HomepageSlider";
+import dynamic from "next/dynamic";
+const HomepageSlider = dynamic(()=>import('../HomepageSlider/HomepageSlider'))
+// import HomepageSlider from "../HomepageSlider/HomepageSlider";
 import Image from "next/image";
-import TabSlider from "../TabSlider/TabSlider";
-import Button from '../Button/Button';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+const TabSlider = dynamic(()=>import('../TabSlider/TabSlider'))
+// import TabSlider from "../TabSlider/TabSlider";
+// import Button from '../Button/Button';
+// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../HomepageHero/HomepageHero.module.scss'
 
 import dottedCircle from '../../public/dotted-circle.svg'

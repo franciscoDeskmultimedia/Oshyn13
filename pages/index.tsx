@@ -13,7 +13,8 @@ const TabSlider = dynamic(() => import('../components/TabSlider/TabSlider'))
 // import TabSlider from '@/components/TabSlider/TabSlider'
 // import TabSection from '@/components/TabSection/TabSection'
 const TabSection = dynamic(()=> import('../components/TabSection/TabSection'))
-import TestimonySlider from '@/components/TestimonySlider/TestimonySlider'
+// import TestimonySlider from '@/components/TestimonySlider/TestimonySlider'
+const TestimonySlider = dynamic(()=> import('../components/TestimonySlider/TestimonySlider'))
 
 // import styles from '@/styles/Home.module.scss'
 
