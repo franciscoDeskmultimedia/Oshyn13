@@ -1,11 +1,12 @@
 import BasicHero from "../components/BasicHero/BasicHero";
-import { getAllPagesWithSlug, getPage, getNav } from "../lib/api";
+import { getAllPagesWithSlug, getAllWorksWithSlug, getPage, getNav } from "../lib/api";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import HomepageHero from "@/components/HomepageHero/HomepageHero";
 import Carousel from "@/components/Carousel/Carousel";
+import WorkListing from "@/components/WorkListing/WorkListing";
 
-const BasicPage = ({page, nav}:{page:any,nav:any})=>{
+const BasicPage = ({page, nav, works}:{page:any,nav:any,works:any})=>{
     const navigationItems = nav.nav.navItemCollection.items;
     return(
         <>
@@ -43,9 +44,15 @@ const BasicPage = ({page, nav}:{page:any,nav:any})=>{
                 }
                 if(item.__typename == "BasicHero"){
 
-                return(
-                    <BasicHero key={index} title={item.title} description={item.description}></BasicHero>
-                )
+                    return(
+                        <BasicHero key={index} title={item.title} description={item.description}></BasicHero>
+                    )
+                }
+                if(item.__typename == "WorkListing"){
+
+                    return(
+                        <WorkListing works={works} ></WorkListing>
+                    )
                 }
                 // if(item.__typename == "SliderCta"){
                 //   return(
@@ -99,20 +106,23 @@ const BasicPage = ({page, nav}:{page:any,nav:any})=>{
 export async function getStaticPaths() {
     const pages = await getAllPagesWithSlug();
     return {
-        paths: pages?.map(({ slug }:{slug:any}) => `/${slug}`) ?? [],
+        paths: pages?.map(({ slug }:{slug:any}) => {
+                return `/${slug}`
+        }) ?? [],
         fallback: "blocking",
     }
 }
 
 export async function getStaticProps({ params, preview = false }:{params:any,preview:any}) {
-
+    const works = (await getAllWorksWithSlug()) ?? [];
     const data = await getPage(params.slug, preview);
     const nav = (await getNav(preview)) ?? []
     return {
         props: {
             preview,
             page: data?.page[0] ?? null,
-            nav: nav
+            nav: nav,
+            works 
         },
         revalidate:3
     }
