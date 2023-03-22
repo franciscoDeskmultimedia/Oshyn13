@@ -1,16 +1,15 @@
-import dynamic from "next/dynamic";
 import Head from 'next/head'
 // import Image from 'next/image'
 import { Inter } from 'next/font/google'
 // import { motion } from 'framer-motion';
 import { getHomePage, getNav, getForm } from '../lib/api'
-const Navigation = dynamic(() => import('@/components/Navigation/Navigation'))
-const HomepageHero = dynamic(() => import('@/components/HomepageHero/HomepageHero'))
-const Carousel = dynamic(() => import('@/components/Carousel/Carousel'))
-const SliderCta = dynamic(() => import('@/components/SliderCta/SliderCta'))
-const TabSlider = dynamic(() => import('@/components/TabSlider/TabSlider')) 
-const TabSection = dynamic(() => import('@/components/TabSection/TabSection')) 
-const TestimonySlider = dynamic(() => import('@/components/TestimonySlider/TestimonySlider')) 
+import Navigation from '@/components/Navigation/Navigation'
+import HomepageHero from '@/components/HomepageHero/HomepageHero'
+import Carousel from '@/components/Carousel/Carousel'
+import SliderCta from '@/components/SliderCta/SliderCta'
+import TabSlider from '@/components/TabSlider/TabSlider'
+import TabSection from '@/components/TabSection/TabSection'
+import TestimonySlider from '@/components/TestimonySlider/TestimonySlider'
 
 // import styles from '@/styles/Home.module.scss'
 
