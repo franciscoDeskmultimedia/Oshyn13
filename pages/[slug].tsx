@@ -51,7 +51,7 @@ const BasicPage = ({page, nav, works}:{page:any,nav:any,works:any})=>{
                 if(item.__typename == "WorkListing"){
 
                     return(
-                        <WorkListing works={works} ></WorkListing>
+                        <WorkListing key={index} works={works} ></WorkListing>
                     )
                 }
                 // if(item.__typename == "SliderCta"){
