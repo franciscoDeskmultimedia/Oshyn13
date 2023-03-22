@@ -9,26 +9,26 @@ import { tabSectionFragment } from '@/queries/fragments/tabSectionFragment'
 
 
 
-export const allBlocks = `
+export const workBlocks = `
+${basicHeroFragment}
+fragment workBlocks on WorkBlocksCollection{
+    items{
+      __typename
+      ...basicHeroFrag
+    }
+}
+`
+
+export const pageBlocks = `
 ${relatedServicesBlock}
 ${basicHeroFragment}
 ${sliderFragment}
-${sliderCtaFrag}
-${InsightSliderFrag}
-${tabSliderFrag}
-${testimonySliderFrag}
-${tabSectionFragment}
-fragment allBlocks on blocksCollection{
-  items{
-    __typename
-    ...relatedServicesSlider
-    ...basicHeroFrag
-    ...sliderFrag
-    ...sliderCtasFrag
-    ...insightSliderFrag 
-    ...tabSliderFrag
-    ...testimonySliderFrag
-    ...tabSectionFrag
-  }
+fragment workBlocks on WorkBlocksCollection{
+    items{
+      __typename
+      ...relatedServicesSlider
+      ...basicHeroFrag
+      ...sliderFrag
+    }
 }
 `

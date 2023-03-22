@@ -10,7 +10,7 @@ const BasicPage = ({page, nav}:{page:any,nav:any})=>{
     return(
         <>
         <Head>
-            <title>Oshyn Service || {page.title} </title>
+            <title>{`Oshyn Service || ${page.title} `}</title>
             <meta name="description" content="Oshyn service" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
