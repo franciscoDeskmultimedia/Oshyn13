@@ -20,11 +20,11 @@ const TabSection = (props:any) =>{
             </div>
             <div className="tab-content w-full">
                 {tabsCollection.map((tabItem:any, index:any)=>{
-                    if(tabItem.tab.__typename == 'Iframe' ){
-                        return(
-                            <div key={index} className={`${active == index ? ' block ': ' hidden '}`} dangerouslySetInnerHTML={{ __html: `${tabItem.tab.iframe}` }} ></div>
-                        )
-                    }
+                    // if(tabItem.tab.__typename == 'Iframe' ){
+                    //     return(
+                    //         <div key={index} className={`${active == index ? ' block ': ' hidden '}`} dangerouslySetInnerHTML={{ __html: `${tabItem.tab.iframe}` }} ></div>
+                    //     )
+                    // }
                     if(tabItem.tab.__typename == 'Content' ){
                         return(
                             <div key={index} className={`${active == index ? ' block ': ' hidden '}`} >
