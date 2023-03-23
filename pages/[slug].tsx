@@ -1,9 +1,12 @@
+import dynamic from "next/dynamic";
+
 import BasicHero from "../components/BasicHero/BasicHero";
 import { getAllPagesWithSlug, getAllWorksWithSlug, getPage, getNav } from "../lib/api";
 import Head from "next/head";
 import Navigation from "../components/Navigation/Navigation";
 import HomepageHero from "@/components/HomepageHero/HomepageHero";
-import Carousel from "@/components/Carousel/Carousel";
+// import Carousel from "@/components/Carousel/Carousel";
+const Carousel = dynamic(()=> import('../components/Carousel/Carousel'))
 import WorkListing from "@/components/WorkListing/WorkListing";
 
 const BasicPage = ({page, nav, works}:{page:any,nav:any,works:any})=>{
