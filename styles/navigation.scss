@@ -18,9 +18,12 @@
         }
       }
       .subnav{
-        position: absolute;
-        top: 156%;
-        left: -30%;
+        @screen lg{
+          position: absolute;
+          top: 156%;
+          left: -30%;
+        }
+        position: relative;
         background-color: white;
         z-index: 999;
         display: none;

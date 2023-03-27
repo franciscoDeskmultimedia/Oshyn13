@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 // import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic'
-import { getHomePage, getNav } from '../lib/api'
+import { getHomePage, getNav, getAllWorksWithSlug } from '../lib/api'
 import Navigation from '@/components/Navigation/Navigation'
 import HomepageHero from '@/components/HomepageHero/HomepageHero'
 // import Carousel from '@/components/Carousel/Carousel'
@@ -15,13 +15,15 @@ const TabSlider = dynamic(() => import('../components/TabSlider/TabSlider'))
 const TabSection = dynamic(()=> import('../components/TabSection/TabSection'))
 // import TestimonySlider from '@/components/TestimonySlider/TestimonySlider'
 const TestimonySlider = dynamic(()=> import('../components/TestimonySlider/TestimonySlider'))
+import Search from '@/components/Search/Search'
 
 // import styles from '@/styles/Home.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({homepage,nav}:{homepage:any,nav:any}) {
+export default function Home({homepage,nav, works}:{homepage:any,nav:any, works:any}) {
   const navigationItems = nav.nav.navItemCollection.items;
+  console.log(works)
   return (
     <>
       <Head>
@@ -32,7 +34,8 @@ export default function Home({homepage,nav}:{homepage:any,nav:any}) {
       </Head>
       {/* <motion.main initial={{opacity:1}} exit={{opacity:1}} animate={{opacity:1}}> */}
       <main>
-        <Navigation navItems={ navigationItems }></Navigation>
+        <Navigation navItems={ navigationItems } works={works}></Navigation>
+
 
         {homepage.page.blocksCollection.items.map((item:any,index:any)=>{
 
@@ -213,9 +216,10 @@ export default function Home({homepage,nav}:{homepage:any,nav:any}) {
 export async function getStaticProps({ preview = false }) {
   const homepage = (await getHomePage(preview)) ?? [];
   const nav = (await getNav(preview)) ?? [];
+  const works = await getAllWorksWithSlug();
   // const formAssembly = (await getForm(33));
   return {
-    props: { preview, homepage, nav },
+    props: { preview, homepage, works, nav },
     revalidate: 20
   }
 }

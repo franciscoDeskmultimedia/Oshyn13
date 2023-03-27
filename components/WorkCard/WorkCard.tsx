@@ -3,9 +3,10 @@ import styles from "../WorkCard/WorkCard.module.scss"
 import Link from "next/link"
 
 const WorkCard = (props:any) => {
+
     return(
-        <Link href={`/work/${props.slug}`}>
-            <div className={`${styles.work_card} bg-white px-12 py-12 `}>
+        <Link className={`${styles.card_col__2}`} href={`/work/${props.slug}`}>
+            <div className={`${styles.work_card} bg-white px-12 py-12 lg:px-20 lg:py-20 h-full`}>
                 <div className="work-card__inner">
                     <div className="work-card__image">
                         <Image src={props.image.url} alt={props.image.title} width={437} height={251} />

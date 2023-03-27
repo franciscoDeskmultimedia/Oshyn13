@@ -8,6 +8,7 @@ import HomepageHero from "@/components/HomepageHero/HomepageHero";
 // import Carousel from "@/components/Carousel/Carousel";
 const Carousel = dynamic(()=> import('../components/Carousel/Carousel'))
 import WorkListing from "@/components/WorkListing/WorkListing";
+import Search from '@/components/Search/Search'
 
 const BasicPage = ({page, nav, works}:{page:any,nav:any,works:any})=>{
     const navigationItems = nav.nav.navItemCollection.items;
@@ -19,7 +20,7 @@ const BasicPage = ({page, nav, works}:{page:any,nav:any,works:any})=>{
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-            <Navigation navItems={navigationItems}></Navigation>
+            <Navigation navItems={navigationItems} works={works}></Navigation>
             {/* <section className='homepage-hero min-h-screen -mt-40 pt-40 w-full bg-background pb-24' >
                 <BasicHero title={page.title} description={page.description}></BasicHero>
             </section> */}
